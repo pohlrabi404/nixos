@@ -11,4 +11,10 @@
 		neovim
 	];
 
+	# general program settings
+	programs.git = {
+		enable = true;
+		userName = "Pohl";
+		userEmail = "pohlrabi404@gmail.com";
+	};
 }

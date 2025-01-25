@@ -14,6 +14,19 @@
 	# enable openssh
 	services.sshd.enable = true;
 
+	# limit generations
+	boot.loader.systemd-boot.configurationLimit = 5;
+
+	nix.gc = {
+		automatic = true;
+		dates = "weekly";
+		options = "--delete-older-than 1w";
+	};
+
+	# optimize store
+	nix.settings.auto-optimise-store = true;
+	
+
 	# flakes
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
