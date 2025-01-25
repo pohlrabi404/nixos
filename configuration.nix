@@ -19,7 +19,10 @@
 		isNormalUser = true;
 		description = "Purple Kohlrabi";
 		home = "/home/pohlrabi";
+		extraGroups = [ "networkmanager" "wheel" ];
 	};
+
+	networking.networkmanager.enable = true;
 
 	environment.systemPackages = with pkgs; [
 		vim
