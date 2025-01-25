@@ -5,6 +5,9 @@
 		./hardware-configuration.nix
 	];
 
+	# state version
+	system.stateVersion = "24.11";
+
 	# systemd boot
 	boot.loader.systemd-boot.enable = true;
 
