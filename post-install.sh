@@ -8,6 +8,7 @@ cd ~/.dotfiles
 sudo mv /etc/nixos/hardware-configuration.nix hardware-configuration.nix
 echo "./hardware-configuration.nix" > .gitignore
 sudo rm -rf /etc/nixos
+sudo ln -s ~/.dotfiles /etc/nixos
 
 sudo nixos-rebuild switch --flake .
 
