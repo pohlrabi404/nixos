@@ -25,8 +25,10 @@
 		extraGroups = [ "networkmanager" "wheel" ];
 	};
 
+	# network
 	networking.networkmanager.enable = true;
 
+	# system packages
 	environment.systemPackages = with pkgs; [
 		vim
 		git
