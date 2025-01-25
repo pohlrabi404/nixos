@@ -7,7 +7,7 @@
 	};
 	outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
 		nixosConfigurations = {
-			pohlrabi = nixpkgs.lib.nixosSystem {
+			nixos = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				modules = [
 					./configuration.nix
@@ -20,5 +20,6 @@
 				];
 			};
 		};
+
 	};
 }
