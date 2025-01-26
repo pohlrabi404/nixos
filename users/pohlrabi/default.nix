@@ -41,4 +41,6 @@
 	programs.bash = {
 		enable = true;
 	};
+
+	wayland.windowManager.sway.enable = true;
 }
