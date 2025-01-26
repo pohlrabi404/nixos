@@ -8,7 +8,6 @@
 
 	# user packages
 	home.packages = with pkgs; [
-		neovim
 		fzf
 		lazygit
 		yazi
