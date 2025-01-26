@@ -5,6 +5,11 @@
 	home.homeDirectory = "/home/pohlrabi";
 	home.stateVersion = "24.11";
 
+	home.sessionVariables = {
+		EDITOR = "nvim";
+		VISUAL = "nvim";
+	};
+
 	programs.home-manager.enable = true;
 
 	# user packages
