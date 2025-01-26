@@ -27,7 +27,7 @@ swapon ${DISK}2
 # mount
 mount /dev/disk/by-label/nixos /mnt
 mount --mkdir -o umask=077 /dev/disk/by-label/boot /mnt/boot
-curl -O https://raw.githubusercontent.com/pohlrabi404/nixos/refs/heads/main/configuration.nix 
+
 # generate config
 nixos-generate-config --root /mnt
 mv configuration.nix /mnt/etc/nixos/configuration.nix

@@ -10,6 +10,7 @@
 	home.packages = with pkgs; [
 		neovim
 		fzf
+		lazygit
 	];
 
 	# general program settings
@@ -17,5 +18,9 @@
 		enable = true;
 		userName = "Pohl";
 		userEmail = "pohlrabi404@gmail.com";
+	};
+
+	programs.lazygit = {
+		enable = true;
 	};
 }
