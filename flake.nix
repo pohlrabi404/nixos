@@ -16,7 +16,7 @@
 					{
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
-						home-manager.users.pohlrabi = import ./users/pohlrabi/default.nix
+						home-manager.users.pohlrabi = import ./users/pohlrabi/default.nix;
 					}
 				];
 			};
