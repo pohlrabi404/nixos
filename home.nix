@@ -9,6 +9,7 @@
 	# user packages
 	home.packages = with pkgs; [
 		neovim
+		fzf
 	];
 
 	# general program settings
