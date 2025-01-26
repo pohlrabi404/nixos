@@ -4,10 +4,7 @@
 	home.username = "pohlrabi";
 	home.homeDirectory = "/home/pohlrabi";
 	home.stateVersion = "24.11";
-	home.sessionVariables = {
-		EDITOR = "nvim";
-		VISUAL = "nvim";
-	};
+
 	programs.home-manager.enable = true;
 
 	# user packages
@@ -33,4 +30,6 @@
 		defaultEditor = true;
 		viAlias = true;
 	};
+
+	xdg.configFile."yazi/yazi.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/users/pohlrabi/yazi/yazi.toml";
 }
