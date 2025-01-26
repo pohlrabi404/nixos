@@ -11,9 +11,9 @@
 				muhenkan = layer(meta)
 				capslock = overload(control, esc)
 				esc = capslock
-				d = lettermod(numpad, d, 200, 100)
-				s = lettermod(special, s, 200, 100)
-				f = lettermod(bracket, f, 200, 100)
+				d = lettermod(numpad, d, 10, 100)
+				s = lettermod(special, s, 10, 100)
+				f = lettermod(bracket, f, 10, 100)
 
 				[numpad]
 				n = 0
