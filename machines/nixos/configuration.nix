@@ -30,17 +30,12 @@
 	# flakes
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-	# sway related
-	hardware.opengl.enable = true;
-	services.seatd.enable = true;
-	security.polkit.enable = true;
-
 	# users
 	users.users.pohlrabi = {
 		isNormalUser = true;
 		description = "Purple Kohlrabi";
 		home = "/home/pohlrabi";
-		extraGroups = [ "networkmanager" "wheel" "seat" ];
+		extraGroups = [ "networkmanager" "wheel" ];
 	};
 
 	# network
@@ -50,11 +45,12 @@
 	environment.systemPackages = with pkgs; [
 		vim
 		git
-		swayfx
 	];
 
-	environment.sessionVariables = {
-		XDG_CURRENT_DESKTOP = "sway";
+	# sway related
+	security.polkit.enable = true;
+	hardware.graphics = {
+		enable = true;
 	};
 
 }
