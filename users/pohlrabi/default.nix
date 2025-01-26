@@ -7,11 +7,14 @@
 
 	programs.home-manager.enable = true;
 
+	imports = [
+		./yazi
+	];
+
 	# user packages
 	home.packages = with pkgs; [
 		fzf
 		lazygit
-		yazi
 	];
 
 	# general program settings
@@ -38,6 +41,4 @@
 	programs.bash = {
 		enable = true;
 	};
-
-	xdg.configFile."yazi/yazi.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/users/pohlrabi/yazi/yazi.toml";
 }
