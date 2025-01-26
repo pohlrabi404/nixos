@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
-
+let
+	mkSymlink = path: config.lib.file.mkOutOfStoreSymlink path;
+	homeDir = "${config.home.homeDirectory}/.dotfiles/users/pohlrabi";
+in
 {
 	home.username = "pohlrabi";
 	home.homeDirectory = "/home/pohlrabi";
@@ -7,9 +10,15 @@
 
 	programs.home-manager.enable = true;
 
+	_module.args = { 
+		inherit mkSymlink;
+		inherit homeDir;
+	};
+
 	imports = [
 		./yazi
 		./sway
+		./nushell
 	];
 
 	# user packages
@@ -35,12 +44,15 @@
 		viAlias = true;
 	};
 
-	programs.zsh = {
+	programs.nushell = {
 		enable = true;
-	};
+		# extraConfig = ''
+		# 	def lla [...args] { ls -la ...(if $args == [] {["."]} else {$args}) | sort-by type name -i }
+		# '';
 
-	programs.bash = {
-		enable = true;
+		shellAliases = {
+			switch = "sudo nixos-rebuild switch --verbose --show-trace";
+			test = "sudo nixos-rebuild test --verbose --show-trace";
+		};
 	};
-
 }

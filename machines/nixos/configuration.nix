@@ -37,7 +37,7 @@
 		isNormalUser = true;
 		description = "Purple Kohlrabi";
 		home = "/home/pohlrabi";
-		extraGroups = [ "networkmanager" "wheel" ];
+		extraGroups = [ "networkmanager" "wheel" "seat" "video" "input" ];
 	};
 
 	# network
@@ -48,4 +48,8 @@
 		vim
 		git
 	];
+
+	# default shell
+	environment.shells = with pkgs; [ nushell ];
+	users.defaultUserShell = pkgs.nushell;
 }
