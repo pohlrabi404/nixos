@@ -4,6 +4,7 @@
 	imports = [
 		./hardware-configuration.nix
 		./keyd.nix
+		./sway.nix
 	];
 
 	# state version
@@ -47,11 +48,4 @@
 		vim
 		git
 	];
-
-	# sway related
-	security.polkit.enable = true;
-	hardware.graphics = {
-		enable = true;
-	};
-
 }
