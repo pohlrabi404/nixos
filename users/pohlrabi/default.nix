@@ -11,6 +11,7 @@
 		neovim
 		fzf
 		lazygit
+		yazi
 	];
 
 	# general program settings
