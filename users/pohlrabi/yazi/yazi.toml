@@ -1,2 +1,2 @@
-[preview]
-text = "nvim"
+[opener]
+text = [{ run = 'nvim "$@"', block = true }]
