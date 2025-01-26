@@ -9,7 +9,6 @@
 
 	imports = [
 		./yazi
-		./nvim
 	];
 
 	# user packages
