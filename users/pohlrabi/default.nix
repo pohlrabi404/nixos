@@ -43,5 +43,4 @@
 		enable = true;
 	};
 
-};
 }
