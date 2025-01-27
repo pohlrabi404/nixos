@@ -7,6 +7,10 @@
 		viAlias = true;
         plugins = with pkgs.vimPlugins; [
             lazy-nvim
+
+            # ui
+            nvchad-ui
+            base46
         ];
 	};
 
