@@ -19,6 +19,7 @@ in
 		./yazi
 		./sway
 		./nushell
+		./nvim
 	];
 
 	# user packages
@@ -36,12 +37,6 @@ in
 
 	programs.lazygit = {
 		enable = true;
-	};
-
-	programs.neovim = {
-		enable = true;
-		defaultEditor = true;
-		viAlias = true;
 	};
 
 }
