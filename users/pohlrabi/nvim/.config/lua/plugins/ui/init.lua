@@ -1,6 +1,6 @@
 return {
     {
-        "nvchad/ui",
+        "nvchad/nvchad-ui",
         lazy = false,
         config = function()
             require("nvchad")
