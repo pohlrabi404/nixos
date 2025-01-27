@@ -44,15 +44,4 @@ in
 		viAlias = true;
 	};
 
-	programs.nushell = {
-		enable = true;
-		# extraConfig = ''
-		# 	def lla [...args] { ls -la ...(if $args == [] {["."]} else {$args}) | sort-by type name -i }
-		# '';
-
-		shellAliases = {
-			switch = "sudo nixos-rebuild switch --verbose --show-trace";
-			test = "sudo nixos-rebuild test --verbose --show-trace";
-		};
-	};
 }
