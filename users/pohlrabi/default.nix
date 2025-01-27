@@ -8,6 +8,10 @@ in
 	home.homeDirectory = "/home/pohlrabi";
 	home.stateVersion = "24.11";
 
+	home.sessionVariables = {
+		XDG_CACHE_HOME = "$HOME/.cache";
+	};
+
 	programs.home-manager.enable = true;
 
 	_module.args = { 

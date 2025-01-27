@@ -1,5 +1,4 @@
 { config, pkgs, homeDir, mkSymlink, ... }:
-
 {
 	programs.neovim = {
 		enable = true;
@@ -7,10 +6,18 @@
 		viAlias = true;
         plugins = with pkgs.vimPlugins; [
             lazy-nvim
+	        plenary-nvim
 
             # ui
             nvchad-ui
             base46
+            nvim-web-devicons
+            vimplugin-nvzone-volt
+            dressing-nvim
+            vimplugin-ccc.nvim
+            indent-blankline-nvim
+            #which-key
+            
         ];
 
         extraLuaConfig = ''
@@ -90,11 +97,11 @@ dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
 require("options")
-require("autocmds")
+-- require("autocmds")
 
-vim.schedule(function()
-    require("mappings")
-end)
+-- vim.schedule(function()
+--    require("mappings")
+--end)
 
         '';
 	};
