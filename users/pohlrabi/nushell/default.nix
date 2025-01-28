@@ -1,4 +1,4 @@
-{ config, pkgs, homeDir, mkSymlink, ... }:
+{ homeDir, mkSymlink, ... }:
 
 {
 	programs.nushell = {

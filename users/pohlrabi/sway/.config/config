@@ -1,0 +1,122 @@
+### VARIABLES
+set $mod Mod4
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term kitty
+
+exec_always autotiling
+
+### APPEARANCE
+corner_radius 10
+gaps {
+    inner 10
+    outer 10
+}
+
+# border
+default_border none
+client.focused #000000 #000000 #000000 #966fd6 #966fd6
+
+# blur
+blur on 
+blur_xray disable 
+blur_passes 1
+blur_radius 10
+blur_noise 0.02
+blur_brightness 0.9
+blur_contrast 0.9
+blur_saturation 1.1
+
+# shadow
+shadows on 
+shadows_on_csd on 
+shadow_blur_radius 10
+shadow_color #b1a2ca
+shadow_inactive_color #000000
+shadow_offset 0 0
+
+# opacity
+for_window [all] opacity 0.90
+for_window [title=".*YouTube.*"] opacity 1
+for_window [app_id="mpv"] opacity 1
+for_window [class="steam_app_2420510"] opacity 1
+
+
+# mouse
+input "1267:226:Elan_Touchpad" {
+  dwt enabled
+  tap enabled
+  natural_scroll enabled
+  middle_emulation enabled
+}
+
+### KEYBINDINGS
+
+# terminal
+bindsym $mod+Return exec $term
+
+# kill window
+bindsym $mod+q kill
+
+# reload config
+bindsym $mod+Shift+r reload
+
+# exit sway
+bindsym $mod+Shift+e exec swaymsg exit
+
+# sceenshot
+bindsym $mod+Ctrl+p exec grim - | wl-copy
+bindsym $mod+Shift+p exec slurp | grim -g - - | wl-copy
+
+# moving
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# layout
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+F floating toggle
+bindsym $mod+Shift+S sticky toggle
+bindsym $mod+Tab focus mode_toggle
+
+# resize window
+bindsym $mod+Shift+$left resize shrink width 50px
+bindsym $mod+Shift+$down resize grow height 50px
+bindsym $mod+Shift+$up resize shrink height 50px
+bindsym $mod+Shift+$right resize grow width 50px
+
+### STARTUP
+exec qutebrowser &
+
+### BEHAVIOUR
+for_window [app_id=".*qutebrowser.*"] move to workspace 2
+assign [app_id=".*qutebrowser.*"] workspace 2
