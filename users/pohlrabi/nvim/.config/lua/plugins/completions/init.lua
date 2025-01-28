@@ -1,7 +1,8 @@
 return {
 	{
-		"saghen/blink-cmp",
+		"saghen/blink.cmp",
 		version = "*",
+		event = "LspAttach",
 		config = function(_, opts)
 			opts = opts or {}
 			dofile(vim.g.base46_cache .. "cmp")
@@ -55,15 +56,17 @@ return {
 					},
 					selection = {
 						auto_insert = function(ctx)
-							local is_math = require("md-latex").is_math
-							if ctx.mode == "cmdline" or is_math() then
+							-- local is_math = require("md-latex").is_math
+							-- if ctx.mode == "cmdline" or is_math() then
+							if ctx.mode == "cmdline" then
 								return false
 							end
 							return true
 						end,
 						preselect = function(ctx)
-							local is_math = require("md-latex").is_math
-							if ctx.mode == "cmdline" or is_math() then
+							-- local is_math = require("md-latex").is_math
+							-- if ctx.mode == "cmdline" or is_math() then
+							if ctx.mode == "cmdline" then
 								return false
 							end
 							return true
