@@ -6,12 +6,23 @@
 		viAlias = true;
 
         extraPackages = with pkgs; [
+            tree-sitter
+
+            # lua
             lua-language-server
             stylua
+
+            # python
             pyright
+
+            # webshit
             typescript-language-server
             eslint
             prettierd
+
+            # nix
+            nixd
+            nixfmt-rfc-style
         ];
         plugins = with pkgs.vimPlugins; [
             lazy-nvim
@@ -137,9 +148,6 @@ require("lazy").setup({
 		},
 	},
 })
-
-dofile(vim.g.base46_cache .. "defaults")
-dofile(vim.g.base46_cache .. "statusline")
 
 for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
     dofile(vim.g.base46_cache .. v)
