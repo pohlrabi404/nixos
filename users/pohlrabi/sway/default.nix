@@ -1,19 +1,24 @@
-{ pkgs,homeDir, mkSymlink, lib, ... }:
+{
+  pkgs,
+  homeDir,
+  mkSymlink,
+  lib,
+  ...
+}:
 
 {
-    home.packages = with pkgs; [
-        autotiling
-    ];
-	wayland.windowManager.sway = {
-		enable = true;
+  home.packages = with pkgs; [
+    autotiling
+  ];
+  wayland.windowManager.sway = {
+    enable = true;
 
-		# temp fix
-		checkConfig = false;
-		package = pkgs.swayfx;
-	};
+    # temp fix
+    checkConfig = false;
+    package = pkgs.swayfx;
+  };
 
-    xdg.configFile."sway/config" = lib.mkForce {
-        source = mkSymlink "${homeDir}/sway/.config/config";
-    };
+  xdg.configFile."sway/config" = lib.mkForce {
+    source = mkSymlink "${homeDir}/sway/.config/config";
+  };
 }
-
