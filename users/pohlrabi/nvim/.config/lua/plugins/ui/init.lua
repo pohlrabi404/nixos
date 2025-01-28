@@ -5,7 +5,8 @@ return {
 		opts = {},
 	},
 	{
-		"uga-rosa/ccc-nvim",
+		"uga-rosa/ccc.nvim",
+		-- lazy = false,
 		init = function()
 			AutoCmd("FileType", {
 				pattern = { "lua", "css" },
