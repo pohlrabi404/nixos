@@ -1,171 +1,181 @@
-{ config, pkgs, homeDir, mkSymlink, ... }:
 {
-	programs.neovim = {
-		enable = true;
-		defaultEditor = true;
-		viAlias = true;
+  config,
+  pkgs,
+  homeDir,
+  mkSymlink,
+  ...
+}:
+{
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
 
-        extraPackages = with pkgs; [
-            tree-sitter
+    extraPackages = with pkgs; [
+      tree-sitter
 
-            # lua
-            lua-language-server
-            stylua
+      # lua
+      lua-language-server
+      stylua
 
-            # python
-            pyright
+      # python
+      pyright
 
-            # webshit
-            typescript-language-server
-            eslint
-            prettierd
+      # webshit
+      typescript-language-server
+      eslint
+      prettierd
 
-            # nix
-            nixd
-            nixfmt-rfc-style
-        ];
-        plugins = with pkgs.vimPlugins; [
-            lazy-nvim
-	        plenary-nvim
+      # nix
+      nixd
+      nixfmt-rfc-style
+    ];
+    plugins = with pkgs.vimPlugins; [
+      lazy-nvim
+      plenary-nvim
 
-            # ui
-            nvchad-ui
-            base46
-            nvim-web-devicons
-            nvzone-volt
-            dressing-nvim
-            ccc-nvim
-            indent-blankline-nvim
-            #which-key
+      # ui
+      nvchad-ui
+      base46
+      nvim-web-devicons
+      nvzone-volt
+      dressing-nvim
+      ccc-nvim
+      indent-blankline-nvim
+      #which-key
 
-            # yazi
-            yazi-nvim
+      # yazi
+      yazi-nvim
 
-            # completions
-            blink-cmp
-            luasnip
+      # completions
+      blink-cmp
+      luasnip
 
-            # formatter
-            conform-nvim
+      # formatter
+      conform-nvim
 
-            # fzf
-            fzf-lua
+      # fzf
+      fzf-lua
 
-            # git
-            gitsigns-nvim
+      # git
+      gitsigns-nvim
 
-            # lsp
-            nvim-lspconfig
-            lazydev-nvim
+      # lsp
+      nvim-lspconfig
+      lazydev-nvim
 
-            # motion
-            leap-nvim
-            repeat
-            nvim-autopairs
+      # motion
+      leap-nvim
+      repeat
+      nvim-autopairs
 
-            # session
-            auto-session
+      # session
+      auto-session
 
-            # treesitter
-            nvim-treesitter
-            (nvim-treesitter.withPlugins (p: [
-                p.lua
-                p.python
-                p.nix
-            ]))
-            
-        ];
-       
-       extraLuaConfig = ''
+      # treesitter
+      nvim-treesitter
+      (nvim-treesitter.withPlugins (p: [
+        p.lua
+        p.python
+        p.nix
+      ]))
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = ";"
+    ];
 
-vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46_cache/"
+    extraLuaConfig = ''
 
-AutoCmd = vim.api.nvim_create_autocmd
-AutoGroup = vim.api.nvim_create_augroup
-ExeAutoCmd = vim.api.nvim_exec_autocmds
+      vim.g.mapleader = " "
+      vim.g.maplocalleader = ";"
 
-require("lazy").setup({
-    { import = "plugins" },
-    }, {
-    dev = {
-        path = "${pkgs.vimUtils.packDir config.programs.neovim.finalPackage.passthru.packpathDirs}/pack/myNeovimPackages/start",
-        patterns = {""},
-    },
-    install = {
-        missing = false,
-    },
-    defaults = { lazy = true },
+      vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46_cache/"
 
-	colorscheme = "industry",
+      AutoCmd = vim.api.nvim_create_autocmd
+      AutoGroup = vim.api.nvim_create_augroup
+      ExeAutoCmd = vim.api.nvim_exec_autocmds
 
-	change_detection = { notify = false },
+      vim.env.PATH = vim.env.PATH .. ":${pkgs.lua-language-server}/bin"
+      vim.env.PATH = vim.env.PATH .. ":${pkgs.nixd}/bin"
+      vim.env.PATH = vim.env.PATH .. ":${pkgs.typescript-language-server}/bin"
 
-	ui = {
-		icons = {
-			ft = "",
-			lazy = "󰂠 ",
-			loaded = "",
-			not_loaded = "",
-		},
-	},
+      require("lazy").setup({
+          { import = "plugins" },
+          }, {
+          dev = {
+              path = "${pkgs.vimUtils.packDir config.programs.neovim.finalPackage.passthru.packpathDirs}/pack/myNeovimPackages/start",
+              patterns = {""},
+          },
+          install = {
+              missing = false,
+          },
+          defaults = { lazy = true },
 
-	performance = {
-        reset_packpath = false,
-		rtp = {
-            reset = false,
-			disabled_plugins = {
-				"2html_plugin",
-				"tohtml",
-				"getscript",
-				"getscriptPlugin",
-				"gzip",
-				"logipat",
-				"netrw",
-				"netrwPlugin",
-				"netrwSettings",
-				"netrwFileHandlers",
-				"matchit",
-				"tar",
-				"tarPlugin",
-				"rrhelper",
-				"spellfile_plugin",
-				"vimball",
-				"vimballPlugin",
-				"zip",
-				"zipPlugin",
-				"tutor",
-				"rplugin",
-				"syntax",
-				"synmenu",
-				"optwin",
-				"compiler",
-				"bugreport",
-				"ftplugin",
-			},
-		},
-	},
-})
+      	colorscheme = "industry",
 
-for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
-    dofile(vim.g.base46_cache .. v)
-end
+      	change_detection = { notify = false },
 
-require("options")
-require("autocmds")
+      	ui = {
+      		icons = {
+      			ft = "",
+      			lazy = "󰂠 ",
+      			loaded = "",
+      			not_loaded = "",
+      		},
+      	},
 
-vim.schedule(function()
-    require("mappings")
-end)
+      	performance = {
+              reset_packpath = false,
+      		rtp = {
+                  reset = false,
+      			disabled_plugins = {
+      				"2html_plugin",
+      				"tohtml",
+      				"getscript",
+      				"getscriptPlugin",
+      				"gzip",
+      				"logipat",
+      				"netrw",
+      				"netrwPlugin",
+      				"netrwSettings",
+      				"netrwFileHandlers",
+      				"matchit",
+      				"tar",
+      				"tarPlugin",
+      				"rrhelper",
+      				"spellfile_plugin",
+      				"vimball",
+      				"vimballPlugin",
+      				"zip",
+      				"zipPlugin",
+      				"tutor",
+      				"rplugin",
+      				"syntax",
+      				"synmenu",
+      				"optwin",
+      				"compiler",
+      				"bugreport",
+      				"ftplugin",
+      			},
+      		},
+      	},
+      })
 
-        '';
-	};
+      for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
+          dofile(vim.g.base46_cache .. v)
+      end
 
-	xdg.configFile."nvim/lua" = {
-		recursive = true;
-		# source = ./.config/lua;
-		source = mkSymlink "${homeDir}/nvim/.config/lua";
-	};
+      require("options")
+      require("autocmds")
+
+      vim.schedule(function()
+          require("mappings")
+      end)
+
+    '';
+  };
+
+  xdg.configFile."nvim/lua" = {
+    recursive = true;
+    # source = ./.config/lua;
+    source = mkSymlink "${homeDir}/nvim/.config/lua";
+  };
 }
