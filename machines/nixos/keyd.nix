@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
 	services.keyd = {
@@ -10,6 +10,7 @@
 				[main]
 				muhenkan = layer(meta)
 				capslock = overload(control, esc)
+                shift = overload(shift, oneshot(shift))
 				esc = capslock
 				d = lettermod(numpad, d, 10, 200)
 				s = lettermod(special, s, 10, 200)
@@ -49,7 +50,7 @@
 
 				[ubracket]
 				j = {
-				k = ]
+				k = }
 
 				[ebracket]
 				j = (
