@@ -1,5 +1,9 @@
 local M = {}
 
+local runtime_path = vim.split(package.path, ";")
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+
 M.servers = {
 	lua_ls = {
 		settings = {
@@ -19,12 +23,15 @@ M.servers = {
 						vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy",
 						"${3rd}/luv/library",
 					},
+					-- library = vim.api.nvim_get_runtime_file("", true),
 					maxPreload = 100000,
 					preloadFileSize = 10000,
+					checkThirdParty = false,
 				},
 
 				runtime = {
 					version = "LuaJIT",
+					path = runtime_path,
 				},
 			},
 		},
@@ -45,6 +52,8 @@ M.servers = {
 	ts_ls = {},
 	-- eslint = {},
 	-- prettierd = {},
+	--
+	nixd = {},
 }
 
 return M
