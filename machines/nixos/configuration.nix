@@ -47,9 +47,19 @@
 	environment.systemPackages = with pkgs; [
 		vim
 		git
+        ly
 	];
 
 	# default shell
 	environment.shells = with pkgs; [ nushell ];
 	users.defaultUserShell = pkgs.nushell;
+
+    # font
+    fonts.packages = with pkgs; [
+        terminus_font
+        nerd-fonts.fira-code
+    ];
+
+    i18n.defaultLocale = "en_US.UTF-8";
+    console.font = "${pkgs.terminus_font}/share/consolefonts/ter-i22b.psf.gz";
 }
