@@ -14,7 +14,7 @@
 
     xdg.configFile."sway" = {
         recursive = true;
-        source = mkSymlink "${homeDir}/kitty/.config";
+        source = mkSymlink "${homeDir}/sway/.config";
     };
 }
 
