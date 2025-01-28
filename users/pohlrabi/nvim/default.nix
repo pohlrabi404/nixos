@@ -4,6 +4,15 @@
 		enable = true;
 		defaultEditor = true;
 		viAlias = true;
+
+        extraPackages = with pkgs; [
+            lua-language-server
+            stylua
+            pyright
+            typescript-language-server
+            eslint
+            prettierd
+        ];
         plugins = with pkgs.vimPlugins; [
             lazy-nvim
 	        plenary-nvim
@@ -12,15 +21,51 @@
             nvchad-ui
             base46
             nvim-web-devicons
-            vimplugin-nvzone-volt
+            nvzone-volt
             dressing-nvim
-            vimplugin-ccc.nvim
+            ccc-nvim
             indent-blankline-nvim
             #which-key
+
+            # yazi
+            yazi-nvim
+
+            # completions
+            blink-cmp
+            luasnip
+
+            # formatter
+            conform-nvim
+
+            # fzf
+            fzf-lua
+
+            # git
+            gitsigns-nvim
+
+            # lsp
+            nvim-lspconfig
+            lazydev-nvim
+
+            # motion
+            leap-nvim
+            repeat
+            nvim-autopairs
+
+            # session
+            auto-session
+
+            # treesitter
+            nvim-treesitter
+            (nvim-treesitter.withPlugins (p: [
+                p.lua
+                p.python
+                p.nix
+            ]))
             
         ];
-
-        extraLuaConfig = ''
+       
+       extraLuaConfig = ''
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ";"
@@ -96,12 +141,16 @@ require("lazy").setup({
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
-require("options")
--- require("autocmds")
+for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
+    dofile(vim.g.base46_cache .. v)
+end
 
--- vim.schedule(function()
---    require("mappings")
---end)
+require("options")
+require("autocmds")
+
+vim.schedule(function()
+    require("mappings")
+end)
 
         '';
 	};

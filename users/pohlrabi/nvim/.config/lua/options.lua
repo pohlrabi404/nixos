@@ -8,7 +8,7 @@ o.laststatus = 3
 o.showmode = false
 
 o.clipboard = "unnamedplus"
-opt.guicursor = [[n-v-c-sm:block,i-ci:block-blinkwait100-blinkon3000-blinkoff100]]
+opt.guicursor = [[i-ci:block-blinkwait100-blinkon3000-blinkoff100]]
 o.cursorline = true
 o.cursorlineopt = "number"
 
