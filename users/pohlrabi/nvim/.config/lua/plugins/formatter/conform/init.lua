@@ -6,7 +6,7 @@ M.opts = function(_, opts)
 		formatters_by_ft = {
 			lua = { "stylua" },
 			typescript = { "prettierd" },
-			nix = { "nixfmt-rfc-style" },
+			nix = { "nixfmt" },
 		},
 		format_on_save = {
 			timeout_ms = 500,
