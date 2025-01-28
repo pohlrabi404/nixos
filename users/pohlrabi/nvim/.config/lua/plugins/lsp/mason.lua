@@ -3,14 +3,13 @@ local M = {}
 M.config = function()
 	local servers = require("plugins.lsp.configs").servers
 
-    for k, v in pairs(servers) do
-       local server = servers[k] or {} 
-       print(k)
-       server.capabilities = require("blink.cmp").get_lsp_capabilities(server.capabilities)
-       require("lspconfig")[k].setup(server)
-    end
+	for k, v in pairs(servers) do
+		local server = v or {}
+		server.capabilities = require("blink.cmp").get_lsp_capabilities(server.capabilities)
+		require("lspconfig")[k].setup(server)
+	end
 
-    -- diagnostic
+	-- diagnostic
 	if vim.g.have_nerd_font then
 		local signs = { ERROR = "", WARN = "", INFO = "", HINT = "" }
 		local diagnostic_signs = {}
