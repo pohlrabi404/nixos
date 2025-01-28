@@ -24,3 +24,14 @@ do --env {
 	load-env $ssh_agent_env
 	$ssh_agent_env | save --force $ssh_agent_file
 }
+
+$env.config = {
+    edit_mode: vi
+    float_precision: 2
+    footer_mode: "always"
+    use_ansi_coloring: true
+
+    filesize: {
+        metric: true
+    }
+}
