@@ -1,12 +1,11 @@
-{ homeDir, mkSymlink }:
+{ homeDir, mkSymlink, lib, ... }:
 
 {
     programs.kitty = {
         enable = true;
     };
 
-    xdg.configFile."kitty" = {
-        recursive = true;
-        source = mkSymlink "${homeDir}/kitty/.config";
+    xdg.configFile."kitty/kitty.conf" = lib.mkForce {
+        source = mkSymlink "${homeDir}/kitty/.config/kitty.conf";
     };
 }

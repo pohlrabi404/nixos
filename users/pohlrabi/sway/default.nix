@@ -1,4 +1,4 @@
-{ pkgs,homeDir, mkSymlink, ... }:
+{ pkgs,homeDir, mkSymlink, lib, ... }:
 
 {
     home.packages = with pkgs; [
@@ -12,9 +12,8 @@
 		package = pkgs.swayfx;
 	};
 
-    xdg.configFile."sway" = {
-        recursive = true;
-        source = mkSymlink "${homeDir}/sway/.config";
+    xdg.configFile."sway/config" = lib.mkForce {
+        source = mkSymlink "${homeDir}/sway/.config/config";
     };
 }
 

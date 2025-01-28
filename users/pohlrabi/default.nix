@@ -24,6 +24,7 @@ in
 		./sway
 		./nushell
 		./nvim
+        ./kitty
 	];
 
 	# user packages
