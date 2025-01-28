@@ -23,4 +23,5 @@ return {
 			preview = {},
 		},
 	},
+    { "local/plenary.nvim" }
 }
