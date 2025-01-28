@@ -1,4 +1,4 @@
-{ config, pkgs, mkSymlink, homeDir, ... }:
+{ pkgs, mkSymlink, homeDir, ... }:
 {
 	home.packages = with pkgs; [
 		yazi

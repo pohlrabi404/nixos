@@ -1,2 +1,3 @@
 ./hardware-configuration.nix
 users/pohlrabi/nushell/.config/history.txt
+users/pohlrabi/nvim/.config/init.lua
