@@ -1,16 +1,20 @@
-{ config, pkgs, ... }:
+{ pkgs,homeDir, mkSymlink, ... }:
 
 {
+    home.packages = with pkgs; [
+        autotiling
+    ];
 	wayland.windowManager.sway = {
 		enable = true;
 
 		# temp fix
 		checkConfig = false;
 		package = pkgs.swayfx;
-		config = rec {
-			modifier = "Mod4";
-			terminal = "kitty";
-		};
 	};
+
+    xdg.configFile."sway" = {
+        recursive = true;
+        source = mkSymlink "${homeDir}/kitty/.config";
+    };
 }
 
