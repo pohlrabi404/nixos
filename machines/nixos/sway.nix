@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   # sway related
@@ -7,8 +7,16 @@
     enable = true;
   };
 
-  # display manager
-  services.displayManager.ly = {
+  services.greetd.settings = {
     enable = true;
+    default_session = {
+      command = ''
+        ${pkgs.greetd.greetd}/bin/agreety --cmd sway \
+        --power-shutdown "sudo systemctl poweroff" \
+        --theme border=magneta;text=magneta;prompt=green;time=magneta;\
+        action=magneta;container=white;button=magneta;input=red
+      '';
+      user = "pohlrabi";
+    };
   };
 }
