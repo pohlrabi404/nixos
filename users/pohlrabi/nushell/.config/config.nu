@@ -34,4 +34,6 @@ $env.config = {
     filesize: {
         metric: true
     }
+    buffer_editor: "nvim"
+    show_banner: false
 }

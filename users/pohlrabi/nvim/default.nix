@@ -78,6 +78,7 @@
         p.lua
         p.python
         p.nix
+        p.nu
       ]))
 
     ];
