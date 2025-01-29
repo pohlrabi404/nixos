@@ -1,11 +1,14 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
-	# sway related
-	security.polkit.enable = true;
-	hardware.graphics = {
-		enable = true;
-	};
+  # sway related
+  security.polkit.enable = true;
+  hardware.graphics = {
+    enable = true;
+  };
 
-	services.getty.autologinUser = "pohlrabi";
+  # display manager
+  services.displayManager.ly = {
+    enable = true;
+  };
 }
