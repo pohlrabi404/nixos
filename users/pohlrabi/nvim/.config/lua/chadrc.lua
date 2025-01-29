@@ -3,7 +3,7 @@ local M
 M = {
 	base46 = {
 		theme = "chadracula",
-		transparency = false,
+		transparency = true,
 	},
 
 	statusline = {
