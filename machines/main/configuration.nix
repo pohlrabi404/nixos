@@ -4,7 +4,11 @@
     ./hardware-configuration.nix
     ./keyd.nix
     ./sway.nix
-  ]; # state version system.stateVersion = "24.11"; systemd boot boot.loader.systemd-boot.enable = true; enable openssh services.sshd.enable = true;
+  ];
+
+  system.stateVersion = "24.11";
+  boot.loader.systemd-boot.enable = true;
+  services.sshd.enable = true;
 
   # limit generations
   boot.loader.systemd-boot.configurationLimit = 5;
