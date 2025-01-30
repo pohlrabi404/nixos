@@ -18,8 +18,13 @@ in
     grim
     slurp
     wl-clipboard
-    swww
+
+    # monitor
     btop
+    fastfetch
+
+    # background daemon
+    swww
   ];
 
   wayland.windowManager.sway = {
@@ -28,10 +33,6 @@ in
     # temp fix
     checkConfig = false;
     package = pkgs.swayfx;
-
-    # xdg.configFile."sway/config" = lib.mkForce {
-    #   source = mkSymlink "${homeDir}/sway/.config/config";
-    # };
 
   };
 
