@@ -10,6 +10,9 @@
   boot.loader.systemd-boot.enable = true;
   services.sshd.enable = true;
 
+  # time zone
+  time.timeZone = "Japan";
+
   # limit generations
   boot.loader.systemd-boot.configurationLimit = 5;
 

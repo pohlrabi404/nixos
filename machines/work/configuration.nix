@@ -7,6 +7,9 @@
     ./sway.nix
   ];
 
+  # time zone
+  time.timeZone = "Japan";
+
   # state version
   system.stateVersion = "24.11";
 
