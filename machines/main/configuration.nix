@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
   imports = [
     ./hardware-configuration.nix
@@ -7,13 +6,8 @@
     ./sway.nix
   ];
 
-  # state version
   system.stateVersion = "24.11";
-
-  # systemd boot
   boot.loader.systemd-boot.enable = true;
-
-  # enable openssh
   services.sshd.enable = true;
 
   # limit generations
@@ -51,6 +45,7 @@
 
   # network
   networking.networkmanager.enable = true;
+  networking.hostName = "main";
 
   # system packages
   environment.systemPackages = with pkgs; [
