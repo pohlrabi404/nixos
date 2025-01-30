@@ -1,8 +1,6 @@
-./hardware-configuration.nix
 users/*/nushell/.config/history.txt
 users/*/nvim/.config/init.lua
 users/*/qutebrowser/.config/bookmarks/urls
 users/*/temp
 result
-machines/nixos/hardware-configuration.nix
 users/pohlrabi/qutebrowser/.config/autoconfig.yml
