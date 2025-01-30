@@ -123,7 +123,8 @@ exec $term
 exec qutebrowser &
 
 ### BEHAVIOUR
-for_window [app_id=".*qutebrowser.*"] move to workspace 2
-assign [app_id=".*qutebrowser.*"] workspace 2
+for_window [app_id=".*qutebrowser.*"] move to workspace 1
+assign [app_id=".*qutebrowser.*"] workspace 1
 
-for_window [app_id="kitty"] fullscreen
+# for_window [app_id="kitty"] fullscreen
+assign [app_id="kitty"] workspace 2
