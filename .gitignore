@@ -4,3 +4,4 @@ users/*/nvim/.config/init.lua
 users/*/qutebrowser/.config/bookmarks/urls
 users/*/temp
 result
+machines/nixos/hardware-configuration.nix
