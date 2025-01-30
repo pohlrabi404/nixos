@@ -12,7 +12,6 @@
       self,
       nixpkgs,
       home-manager,
-      lib,
       ...
     }:
     {
