@@ -30,6 +30,7 @@ mount --mkdir -o umask=077 /dev/disk/by-label/boot /mnt/boot
 
 # generate config
 nixos-generate-config --root /mnt
+curl -O https://raw.githubusercontent.com/pohlrabi404/nixos/refs/heads/main/machines/nixos/configuration.nix
 mv configuration.nix /mnt/etc/nixos/configuration.nix
 nixos-install
 
