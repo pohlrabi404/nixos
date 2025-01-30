@@ -19,6 +19,7 @@ in
     slurp
     wl-clipboard
     swww
+    btop
   ];
 
   wayland.windowManager.sway = {
