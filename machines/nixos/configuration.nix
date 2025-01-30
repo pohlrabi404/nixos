@@ -45,6 +45,7 @@
       "seat"
       "video"
       "input"
+      "greeter"
     ];
   };
 
@@ -55,10 +56,6 @@
   environment.systemPackages = with pkgs; [
     vim
     git
-    ly
-
-    # clipboard
-    wl-clipboard
   ];
 
   # default shell
