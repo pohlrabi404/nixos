@@ -12,14 +12,29 @@
       self,
       nixpkgs,
       home-manager,
+      lib,
       ...
     }:
     {
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+        main = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./machines/nixos/configuration.nix
+            ./machines/main/configuration.nix
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.pohlrabi = import ./users/pohlrabi/default.nix;
+            }
+          ];
+        };
+
+        work = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./machines/work/configuration.nix
 
             home-manager.nixosModules.home-manager
             {
