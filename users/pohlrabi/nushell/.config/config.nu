@@ -37,3 +37,6 @@ $env.config = {
     buffer_editor: "nvim"
     show_banner: false
 }
+
+$env.EDITOR = "nvim"
+$env.VISUAL = "nvim"

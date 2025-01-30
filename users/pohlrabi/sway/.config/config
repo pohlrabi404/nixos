@@ -1,5 +1,6 @@
 ### VARIABLES
 
+set $bg @background@
 set $mod Mod4
 
 set $left h
@@ -47,7 +48,7 @@ for_window [app_id="mpv"] opacity 1
 for_window [class="steam_app_2420510"] opacity 1
 
 # background
-# exec swww-daemon & swww img $HOME/backgrounds/rain.gif
+exec swww-daemon & swww img $bg
 
 # mouse
 input "1267:226:Elan_Touchpad" {
@@ -117,9 +118,12 @@ bindsym $mod+Shift+$down resize grow height 50px
 bindsym $mod+Shift+$up resize shrink height 50px
 bindsym $mod+Shift+$right resize grow width 50px
 
-### STARTUP
-# exec qutebrowser &
-#
-# ### BEHAVIOUR
-# for_window [app_id=".*qutebrowser.*"] move to workspace 2
-# assign [app_id=".*qutebrowser.*"] workspace 2
+## STARTUP
+exec $term
+exec qutebrowser &
+
+### BEHAVIOUR
+for_window [app_id=".*qutebrowser.*"] move to workspace 2
+assign [app_id=".*qutebrowser.*"] workspace 2
+
+for_window [app_id="kitty"] fullscreen
