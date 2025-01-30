@@ -69,6 +69,9 @@ c.url.start_pages = [
 c.url.searchengines = {
         'DEFAULT': 'https://duckduckgo.com/?q={}',
         '!yt': 'https://www.youtube.com/results?search_query={}',
+        '!npkg': 'https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={}',
+        '!nopt': 'https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={}',
+        '!hopt': 'https://home-manager-options.extranix.com/?query={}&release=master',
 }
 
 config.bind('<Escape>', 'mode-leave ;; jseval -q document.activeElement.blur()', mode='insert')
@@ -78,3 +81,5 @@ config.bind('<Ctrl-k>', 'completion-item-focus prev', mode='command')
 
 config.set("input.mode_override", "passthrough", "https://colab.research.google.com")
 config.set("input.mode_override", "passthrough", "https://www.kaggle.com")
+
+c.editor.command = [ "vim", "-g", "-f", "{file}" ]

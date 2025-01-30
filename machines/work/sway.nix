@@ -22,4 +22,6 @@
       };
     };
   };
+
+  programs.light.enable = true;
 }

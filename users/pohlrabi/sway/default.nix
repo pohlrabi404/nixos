@@ -34,6 +34,9 @@ in
     checkConfig = false;
     package = pkgs.swayfx;
 
+    # gtk
+    wrapperFeatures.gtk = true;
+
   };
 
   xdg.configFile."sway/config" = lib.mkForce {

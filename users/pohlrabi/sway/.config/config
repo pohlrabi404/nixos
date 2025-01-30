@@ -118,6 +118,15 @@ bindsym $mod+Shift+$down resize grow height 50px
 bindsym $mod+Shift+$up resize shrink height 50px
 bindsym $mod+Shift+$right resize grow width 50px
 
+# brightness
+bindsym $mod+Shift+D exec light -U 10
+bindsym $mod+Shift+U exec light -A 10
+
+# volume
+bindsym $mod+Shift+R exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
+bindsym $mod+Shift+L exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
+bindsym $mod+Shift+M exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+
 ## STARTUP
 exec $term
 exec qutebrowser &
