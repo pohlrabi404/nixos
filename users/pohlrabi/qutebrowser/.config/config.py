@@ -81,5 +81,3 @@ config.bind('<Ctrl-k>', 'completion-item-focus prev', mode='command')
 
 config.set("input.mode_override", "passthrough", "https://colab.research.google.com")
 config.set("input.mode_override", "passthrough", "https://www.kaggle.com")
-
-c.editor.command = [ "vim", "-g", "-f", "{file}" ]

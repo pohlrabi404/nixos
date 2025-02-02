@@ -119,13 +119,13 @@ bindsym $mod+Shift+$up resize shrink height 50px
 bindsym $mod+Shift+$right resize grow width 50px
 
 # brightness
-bindsym $mod+Shift+D exec light -U 10
-bindsym $mod+Shift+U exec light -A 10
+bindsym $mod+Ctrl+d exec light -U 10
+bindsym $mod+Ctrl+u exec light -A 10
 
 # volume
-bindsym $mod+Shift+R exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
-bindsym $mod+Shift+L exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
-bindsym $mod+Shift+M exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+bindsym $mod+Ctrl+r exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
+bindsym $mod+Ctrl+l exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
+bindsym $mod+Ctrl+m exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 
 ## STARTUP
 exec $term
